@@ -38,9 +38,9 @@ $colors: (
   secondary:  #32db64,
   danger:     #f53d3d,
   light:      #f4f4f4,
-  dark:       #222
+  dark:       #222,
+  pending:    rgb(160, 160, 50)
 );
-
 
 // App iOS Variables
 // --------------------------------------------------
@@ -48,13 +48,13 @@ $colors: (
 
 
 
-
 // App Material Design Variables
 // --------------------------------------------------
 // Material Design only Sass variables can go here
 
-
-
+// $range-md-knob-background-color: rgb(0, 255, 157);
+// $range-md-knob-min-background-color: red;
+// $range-md-knob-max-background-color: green;
 
 // App Windows Variables
 // --------------------------------------------------

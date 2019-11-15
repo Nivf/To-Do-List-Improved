@@ -1,0 +1,150 @@
+page-tasks {
+    .toolbar-background-md {
+        background-color: #4c87da;
+        background-image: -webkit-radial-gradient(50% top, circle, rgb(182, 208, 255) 0%, rgba(84,90,182,0) 75%),-webkit-radial-gradient(right top, circle, #4c87da 0%, rgba(121,74,162,0) 57%);
+        background-repeat: no-repeat;
+        background-size: 100% 1000px;
+        color: #c7c0de;
+        margin: 0;
+        padding: 20px;    
+      }
+      .gridToolBar{
+        height: 30px;
+        width: 100%;
+        margin-top: 5px !important;
+        margin-bottom: 10px !important;
+        border-radius: 8px !important;
+        /* HOVER OFF */
+        transition: 1s;
+        background-color: #e6e6e6d4 !important;
+        margin-top: -8px;
+        box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.14), -2px -2px 1px -2px rgba(0, 0, 0, 0.2), 0 0 5px 0 rgba(0, 0, 0, 0.12);
+      }
+      .card{
+          padding: 5px;
+      }
+
+    .toolbar-title-md {
+        color: #ffffff;
+    }
+    .centerHeader{
+        margin-top: auto;
+        font-weight: 350;
+      }
+    .task-box {
+        padding: 10px 10px 0px 20px;
+        margin: auto;
+        width: 90%;
+      }
+      .card-header-md {
+        font-size: 1.6rem;
+        color: #222;
+        padding: 16px;
+        background: powderblue;
+    }
+    .card-header{
+    padding-bottom: 1px;
+    padding-top: 1px;
+    padding-left: 1px;
+    padding-right: 1px;
+    } //card-header-md
+    #addBTN {
+        background-color: #e6e1b0;
+        z-index: 999;
+        border-radius: 8px;        
+        }
+    .item-md {
+        border-bottom: 1px solid #d8d6d6;
+    }
+    #addICON{
+        padding: 0 2px;
+        margin-right: 1px;
+        margin-left: 1px;
+    }
+    .tool-bar-row {
+        box-shadow: 0 3px 5px -1px rgba(0,0,0,.2), 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12);
+      background-repeat: no-repeat;
+      background-size: 100% 1000px;
+      background-color: #4c87da;
+      background-image: -webkit-radial-gradient(50% top, circle, rgb(182, 208, 255) 0%, rgba(84,90,182,0) 75%),-webkit-radial-gradient(right top, circle, #4c87da 0%, rgba(121,74,162,0) 57%);
+      background-repeat: no-repeat;
+      background-size: 100% 1000px;
+      color: #c7c0de;
+      margin: 0;
+      padding: 5px; 
+      }
+      .toolbar-input {
+            border: 1px solid #488aff !important;     
+            border-radius: 8px;
+            height: 55px;
+            margin: 0px;
+            -webkit-box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.14), -2px -2px 1px -2px rgba(0, 0, 0, 0.2), 0 0 5px 0 rgba(0, 0, 0, 0.12);
+            box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.14), -2px -2px 1px -2px rgba(0, 0, 0, 0.2), 0 0 5px 0 rgba(0, 0, 0, 0.12);
+        }
+      .btn{
+        border-radius: 8px;
+      }
+    .btnAdd :hover{
+        font-size: 120%;
+        transition: 0.8s;
+    }
+    .btnAdd{
+        height: 75px;
+        font-size: 100%;
+        border-radius: 8px;
+        margin-top: -8px;
+        -webkit-box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.14), -2px -2px 1px -2px rgba(0, 0, 0, 0.2), 0 0 5px 0 rgba(0, 0, 0, 0.12);
+        box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.14), -2px -2px 1px -2px rgba(0, 0, 0, 0.2), 0 0 5px 0 rgba(0, 0, 0, 0.12);
+      }
+      .complete-task{
+        background-color: #32db6442;
+      }
+
+      .form-search-input{
+        width: 100%;
+        height: 55px;
+        border: 0px;
+      }    
+        .line-row:hover {
+            height: 150px;
+            transition: height 2s;
+            background-color: #daf3fe !important;
+            background-image: none !important;
+            transition: 0.2s linear;
+        }
+
+        .line-row {
+            padding: 10px;
+            height: 75px;
+            border-radius: 5px;
+            /* HOVER OFF */
+            transition: 1s;
+            border-bottom: 1px solid gainsboro;
+            margin-top: -8px;
+ }
+ .child 
+ {
+    transition: 1s;
+    margin-left: 40px;
+ }
+
+        $breakpoints-keys: map-keys($screen-breakpoints);
+        $breakpoints-values: map-values($screen-breakpoints);
+        @for $i from 1 to length($breakpoints-keys)+1 {
+          @if $i < length($breakpoints-keys) {
+            .hidden-#{nth($breakpoints-keys, $i)} {
+              @media (min-width: nth($breakpoints-values, $i)) and (max-width: #{nth($breakpoints-values, $i+1)}) {
+                display: none;
+              }
+            }
+          } @else {
+            .hidden-#{nth($breakpoints-keys, $i)} {
+              @media (min-width: nth($breakpoints-values, $i)) {
+                display: none;
+              }
+            }
+          }
+        }
+        
+    }
+       

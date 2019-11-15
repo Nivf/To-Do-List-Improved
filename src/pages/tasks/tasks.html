@@ -1,0 +1,115 @@
+<ion-header>
+  <ion-navbar color="parimary" hideBackButton>
+    <ion-title>
+      <div class="centerHeader">
+        My Tasks
+      </div>
+    </ion-title>
+  </ion-navbar>
+
+</ion-header>
+<ion-content padding id="page4">
+  <div class="task-box">
+    <ion-card class="card">
+      <ion-card-header item-start>
+        <ion-item style="background-color: powderblue;">
+          <span>Hi
+            <b>{{userName}}</b>, these are your tasks: </span>
+
+        </ion-item>
+        <ion-toolbar [class.tool-bar-height]="toolBarHide">
+          <ion-grid fix>
+            <ion-row justify-content-center class="tool-bar-row">
+              <ion-col col-xl-1>
+                <button item-end id="addBTN" style="width: 100px; height: 53px; top: -3px;" ion-button round block="false" icon-only (click)="add()">
+                  <ion-icon id="addICON" name="add-circle"></ion-icon>
+                </button>
+              </ion-col>
+              <ion-col *ngIf="!toolBarHide" col-lg-5 col-md-5 col-sm-12 class="tool-bar-col">
+                <ion-item class="toolbar-input">
+                  <input class="form-search-input" type="text" name="search" [(ngModel)]="searchingTerm" placeholder="Search">
+                </ion-item>
+              </ion-col>
+
+            </ion-row>
+          </ion-grid>
+        </ion-toolbar>
+      </ion-card-header>
+      <ion-row class="grid-header gridToolBar">
+        <ion-col col-12 col-sm-3 col-lg-2 col-xl-1>
+          <ion-icon name="arrow-down" *ngIf="this.isAscendingVar" style="zoom:1.5;
+                  position: absolute; top: 2px; margin-left: 3px; " (click)="sortByStringAscending(); this.isAscendingVar = false"></ion-icon>
+          <ion-icon name="arrow-up" *ngIf="!this.isAscendingVar" style="zoom:1.5;
+                  position: absolute; top: 2px; margin-left: 3px; " (click)="sortByStringDescending(); this.isAscendingVar = true"></ion-icon>
+        </ion-col>
+        <ion-col col-xl-1>
+          <ion-row>
+            <ion-toggle style="margin-left: -80px; margin-top: -9px;" name="blueberry" (click)="isTree = !isTree" checked>
+            </ion-toggle>
+          </ion-row>
+        </ion-col>
+
+      </ion-row>
+      <ion-row *ngFor="let task of tasks | filter:searchingTerm
+              | paginate: { itemsPerPage: 12, currentPage: p }; let i = index" [hidden]="shouldShowRow(task)">
+        <ion-col col-xl-11 col-12>
+          <ion-row class="line-row" [class.child]="task.isChild == true && isTree == true" [class.complete-task]=" task.status == 2"
+            [class.line-row-slected]="i == this.lastChangedTaskIndex" tappable (click)="removeActivateClass()">
+            <ion-col col-auto>
+              <ion-icon class="icon" *ngIf="task.isChild != true && isTree == true" (click)="this.shownGroups[task.title].show == true ?
+                           this.shownGroups[task.title].show = false :
+                           this.shownGroups[task.title].show = true;" style="zoom:1.5; margin-right: 3px; margin-top: 5px;"
+                item-start [name]="shownGroups[task.title].show != true ? 'add' :'remove' ">
+              </ion-icon>
+            </ion-col>
+            <ion-col col-auto>
+              <ion-icon class="icon" *ngIf="task.isChild != true" style="zoom:1.5; margin-right: 3px; margin-top: 5px;" (click)="task.isChild ? changeSubTaskStatus(task.title) : changeStatus(task.title)"
+                item-start [color]="satutsToIconHash[task.status].iconColor" [name]="satutsToIconHash[task.status].iconName">
+              </ion-icon>
+            </ion-col>
+            <ion-col *ngIf="task.isChild == true && isTree == true">
+              <ion-icon style="font-size: 30px;" name="return-right"></ion-icon>
+            </ion-col>
+            <ion-col col-xl-4>
+              <ion-label item-start item-top type="text">
+                <h2>
+                  <b>{{task.title}}</b>
+                </h2>
+              </ion-label>
+            </ion-col>
+            <ion-col col-xl-4>
+              <ion-label item-start item-top type="text">
+                <h3>{{task.description}}</h3>
+              </ion-label>
+            </ion-col>
+            <ion-col offset-xl-1>
+              <button class="btn" *ngIf="task.isChild != true" float-right ion-button outline item-end icon-left (click)="edit(i)">
+                <ion-icon name="create"></ion-icon>
+                Edit
+              </button>
+            </ion-col>
+            <ion-col>
+              <button hide-sm *ngIf="task.isChild != true" class="btn" float-right ion-button outline item-end icon-left (click)="delete(task.title)">
+                <ion-icon name="close"></ion-icon>
+                Delete
+              </button>
+            </ion-col>
+          </ion-row>
+        </ion-col>
+        <ion-col hide-sm *ngIf="task.isChild != true" style="padding-right: 7px !important; padding-top: 5px !important;" col-xl-1
+          col-12>
+          <button class="btnAdd" ion-button icon-left (click)="add(task.title)">
+            <ion-icon name="add"></ion-icon>
+            Add
+          </button>
+        </ion-col>
+      </ion-row>
+      <pagination-controls style="text-align: center;" (pageChange)="p = $event"></pagination-controls>
+    </ion-card>
+  </div>
+</ion-content>
+<ion-footer>
+  <div class="myFooter">
+    This is a demo site, built using Ionic 3, Node.js on top of cloud stored db (MongoDB-AWS)
+  </div>
+</ion-footer>

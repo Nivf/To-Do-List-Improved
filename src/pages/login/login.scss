@@ -1,0 +1,68 @@
+page-login {
+    .toolbar-background-md {
+      background-color: #4c87da;
+      background-color: #4c87da;
+      background-image: -webkit-radial-gradient(50% top, circle, rgb(182, 208, 255) 0%, rgba(84,90,182,0) 75%),-webkit-radial-gradient(right top, circle, #4c87da 0%, rgba(121,74,162,0) 57%);
+      background-repeat: no-repeat;
+      background-size: 100% 1000px;
+      color: #c7c0de;
+      margin: 0;
+      padding: 20px;    
+    }
+    .title-image {
+      margin-top: auto;
+      float: left;
+      margin-right: 6px;
+  }
+.centerHeader{
+  margin-top: 6px;
+  font-weight: 350;
+}
+  
+    .toolbar-title-md {
+        color: #ffffff;
+    }
+     /*.login-box {
+        //padding: 10px 10px 0px 20px;
+        //margin: auto;
+        //width: 450px;
+      }*/
+      .col-centered{
+        float: none;
+        margin: 0 auto;
+    }
+ 
+  .item-block{
+    padding-right: 8px;
+    border-bottom: 0px solid #dedede;
+}
+      .list {
+        margin-top: 16px;
+        margin-right: auto;
+        margin-left: auto
+      }
+      .item-inner {
+        padding-right: 8px;
+        border-bottom-width: 1px solid #dedede;
+      }
+      .item-md.item-block {
+        padding-right: 8px;
+        border-bottom-width: 1px solid #dedede;
+      }
+    .item {
+        padding-right: 8px;
+        border-bottom-width: 1px solid #dedede;
+      }
+    .item-block{
+        padding-right: 8px;
+        border-bottom-width: 1px solid #dedede;
+      }
+   .item-md {
+        padding-right: 8px;
+        border-bottom-width: 1px solid #dedede;
+      }
+   .item-input{
+        padding-right: 8px;
+        border-bottom-width: 1px solid #dedede;
+      }
+}
